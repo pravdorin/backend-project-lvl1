@@ -1,2 +1,1 @@
-import userName from "../index"
-
+import userName from '../index';
