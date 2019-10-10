@@ -1,6 +1,6 @@
 {
   "name": "brain-games-pravdin-anton",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "project 1",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
   },
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
-   },
-   "files": [
+  },
+  "files": [
     "dist"
   ],
   "repository": {
@@ -29,5 +29,8 @@
     "@babel/core": "^7.6.3",
     "@babel/node": "^7.6.3",
     "@babel/preset-env": "^7.6.3"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }
