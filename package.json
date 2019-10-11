@@ -1,6 +1,6 @@
 {
   "name": "brain-games-pravdin-anton",
-  "version": "1.1.0",
+  "version": "1.2.2",
   "description": "project 1",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "files": [
     "dist"
