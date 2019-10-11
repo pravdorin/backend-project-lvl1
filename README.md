@@ -8,4 +8,4 @@
 
 [![Build Status](https://travis-ci.org/pravdorin/backend-project-lvl1.svg?branch=master)](https://travis-ci.org/pravdorin/backend-project-lvl1)
 
-[![asciicast](https://asciinema.org/a/MUrPrniOMrCblI3sc84H2tBuD.svg)](https://asciinema.org/a/MUrPrniOMrCblI3sc84H2tBuD)
+[![asciicast](https://asciinema.org/a/6PWWzSGXXKGZskxxlPXrhlomV.svg)](https://asciinema.org/a/6PWWzSGXXKGZskxxlPXrhlomV)
