@@ -7,11 +7,11 @@ console.log(`Hi ${userName} !`);
 let streak = 0;
 
 const randomizer = (num) => {
-  const randomNumber = Math.round(Math.random(num) * num);
+  const randomNumber = Math.round(Math.random(num) * 100);
   return randomNumber;
 };
 const randomSign = (num) => {
-  const randomNumber = Math.round(Math.random(num) * num);
+  const randomNumber = Math.round(Math.random(num) * 3);
   if (randomNumber === 1) {
     return '+';
   } else if (randomNumber === 2) {
@@ -21,7 +21,7 @@ const randomSign = (num) => {
 };
 
 const checkAnswer = (answer, correctAnswer, wrongAnswer, userName) => {
-  if (answer === correctAnswer) {
+  if (answer == correctAnswer) {
     if (streak < 3) {
       console.log('Correct!');
       streak++;
@@ -30,7 +30,7 @@ const checkAnswer = (answer, correctAnswer, wrongAnswer, userName) => {
       console.log(`Congratulations, ${userName}!`);
       streak = 0;
     }
-  } else {
+  } else if (answer !== correctAnswer) {
     console.log(`'${wrongAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
     Let's try again, ${userName} \n`);
     streak = 0;
@@ -66,10 +66,8 @@ export const calculator = () => {
   const result = eval(randomNumber + Sign + randomNumberTwo);
 
   const answer = readlineSync.question(`Question: ${randomNumber} ${Sign} ${randomNumberTwo}   \n`);
-
   const correctAnswer = result;
   const wrongAnswer = answer;
-
   checkAnswer(answer, correctAnswer, wrongAnswer, userName);
   calculator();
 };
