@@ -1,6 +1,6 @@
 {
   "name": "brain-games-pravdin-anton",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "project 1",
   "main": "index.js",
   "scripts": {
@@ -41,6 +41,7 @@
     "eslint-plugin-react-hooks": "^1.7.0"
   },
   "dependencies": {
+    "@hexlet/pairs": "^1.0.10",
     "readline-sync": "^1.4.10"
   }
 }

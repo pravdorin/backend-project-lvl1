@@ -2,15 +2,43 @@ import readlineSync from 'readline-sync';
 
 console.log('Welcome to the Brain Games!');
 
-
-console.log('Answer "yes" if the number is even, otherwise answer "no".\n');
-
 const userName = readlineSync.question('May I have your name? ');
 console.log(`Hi ${userName} !`);
 let streak = 0;
 
-const findEven = () => {
-  const randomNumber = Math.round(Math.random(100) * 100);
+const randomizer = (num) => {
+  const randomNumber = Math.round(Math.random(num) * num);
+  return randomNumber;
+};
+const randomSign = (num) => {
+  const randomNumber = Math.round(Math.random(num) * num);
+  if (randomNumber === 1) {
+    return '+';
+  } else if (randomNumber === 2) {
+    return '*';
+  }
+  return '-';
+};
+
+const checkAnswer = (answer, correctAnswer, wrongAnswer, userName) => {
+  if (answer === correctAnswer) {
+    if (streak < 3) {
+      console.log('Correct!');
+      streak++;
+    }
+    if (streak >= 3) {
+      console.log(`Congratulations, ${userName}!`);
+      streak = 0;
+    }
+  } else {
+    console.log(`'${wrongAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
+    Let's try again, ${userName} \n`);
+    streak = 0;
+  }
+};
+
+export const findEven = () => {
+  const randomNumber = randomizer(100);
 
   let correctAnswer = '';
   let wrongAnswer = '';
@@ -26,23 +54,22 @@ const findEven = () => {
   readlineSync.setDefaultOptions({ limit: ['yes', 'no'] });
   const answer = readlineSync.question(`Question: ${randomNumber}   `);
 
-  if (answer === correctAnswer) {
-    if (streak < 3) {
-      console.log('Correct!');
-      streak++;
-    }
-    if (streak >= 3) {
-      console.log(`Congratulations, ${userName}!`);
-      streak = 0;
-    }
-  } else {
-    console.log(`'${wrongAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.
-    Let's try again, ${userName}`);
-    streak = 0;
-  }
-
+  checkAnswer(answer, correctAnswer, wrongAnswer, userName);
   findEven();
 };
-findEven();
 
-export default findEven;
+export const calculator = () => {
+  const randomNumber = randomizer(100);
+  const randomNumberTwo = randomizer(100);
+  const Sign = randomSign(3);
+
+  const result = eval(randomNumber + Sign + randomNumberTwo);
+
+  const answer = readlineSync.question(`Question: ${randomNumber} ${Sign} ${randomNumberTwo}   \n`);
+
+  const correctAnswer = result;
+  const wrongAnswer = answer;
+
+  checkAnswer(answer, correctAnswer, wrongAnswer, userName);
+  calculator();
+};
