@@ -130,7 +130,7 @@ function isPrime(num) {
   return num > 1;
 }
 
-const findPrime = () => {
+export const findPrime = () => {
   const randomNumber = randomizer(100);
 
   let result = isPrime(randomNumber);
@@ -150,5 +150,3 @@ const findPrime = () => {
   checkAnswer(answer, correctAnswer, wrongAnswer, userName);
   findPrime();
 };
-
-findPrime();
