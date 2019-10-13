@@ -19,3 +19,7 @@ Game N-2
 Game N-3
 
 [![asciicast](https://asciinema.org/a/Y5tpVgh53bOeQAzrqwTCxUxCB.svg)](https://asciinema.org/a/Y5tpVgh53bOeQAzrqwTCxUxCB)
+
+Game N-4
+
+[![asciicast](https://asciinema.org/a/zQ3ggXvEyUJBFlEWBmpJJTOCR.svg)](https://asciinema.org/a/zQ3ggXvEyUJBFlEWBmpJJTOCR)
