@@ -93,5 +93,3 @@ export const commonDivisor = () => {
   checkAnswer(answer, correctAnswer, wrongAnswer, userName);
   commonDivisor();
 };
-
-commonDivisor();
