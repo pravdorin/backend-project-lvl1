@@ -123,3 +123,32 @@ export const findProgression = () => {
 
   findProgression();
 };
+
+function isPrime(num) {
+  for(var i = 2; i < num; i++)
+    if(num % i === 0) return false;
+  return num > 1;
+}
+
+const findPrime = () => {
+  const randomNumber = randomizer(100);
+
+  let result = isPrime(randomNumber);
+
+  if (result === true) {
+    result = 'yes';
+  } else {
+    result = 'no';
+  }
+
+  readlineSync.setDefaultOptions({ limit: ['yes', 'no'] });
+  const answer = readlineSync.question(`Question: ${randomNumber}   `);
+
+  const correctAnswer = result;
+  const wrongAnswer = answer;
+
+  checkAnswer(answer, correctAnswer, wrongAnswer, userName);
+  findPrime();
+};
+
+findPrime();
