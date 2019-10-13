@@ -4,6 +4,8 @@ start:
 	npx babel-node src/bin/brain-even.js
 game:
 	npx babel-node src/bin/brain-calc.js
+gcd:
+	npx babel-node src/bin/brain-gcd.js
 publish:
 	npm publish --dry-run
 lint:
