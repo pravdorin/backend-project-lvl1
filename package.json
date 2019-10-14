@@ -1,7 +1,8 @@
 {
   "name": "brain-games-pravdin-anton",
-  "version": "1.6.2",
-  "description": "project 1",
+  "version": "1.7.0",
+  "description": "Brain games",
+  "keywords": ["games", "numbers", "fun"],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,8 +11,12 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-games": "dist/games/brain-games.js",
+    "brain-even": "dist/games/even.js",
+    "brain-calc": "dist/games/calc.js",
+    "brain-gcd": "dist/games/gcd.js",
+    "brain-prime": "dist/games/prime.js",
+    "brain-progression": "dist/games/progression.js"
   },
   "files": [
     "dist"
