@@ -1,5 +1,3 @@
-import { commonDivisor } from '../games/gcd';
-
-console.log('Find the greatest common divisor of given numbers.\n');
+import commonDivisor from '../games/gcd';
 
 commonDivisor();

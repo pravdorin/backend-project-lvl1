@@ -3,7 +3,6 @@
   "version": "1.7.1",
   "description": "Brain games",
   "keywords": ["games", "numbers", "fun"],
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "./node_modules/.bin/eslint",

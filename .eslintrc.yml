@@ -16,6 +16,3 @@ extends:
 
 rules:
   no-console: 0
-  no-plusplus: 0
-  no-eval: 0
-  import/prefer-default-export: 0

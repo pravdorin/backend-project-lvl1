@@ -1,5 +1,3 @@
-import { findProgression } from '../games/progression';
-
-console.log('What number is missing in the progression?\n');
+import findProgression from '../games/progression';
 
 findProgression();

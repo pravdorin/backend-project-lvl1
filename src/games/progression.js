@@ -1,19 +1,27 @@
 import readlineSync from 'readline-sync';
-import { randomizer, checkAnswer, userName } from '../functions';
+import { randomizer, checkAnswer, greeting } from '../functions';
+
+greeting();
+
+const userName = readlineSync.question('May I have your name? ');
+console.log(`Hi ${userName} !`);
+
+console.log('What number is missing in the progression?\n');
 
 const progression = (start, count, multiplier) => {
+  let acc = multiplier;
   let output = `${start}`;
-  for (let i = 0; i <= count; i++) {
-    output += ` ${start + multiplier}`;
-    multiplier += 2;
+  for (let i = 0; i <= count; i += 1) {
+    output += ` ${start + acc}`;
+    acc += 2;
   }
   return output;
 };
 
-export const findProgression = () => {
-  const startNumber = randomizer(100);
+const findProgression = () => {
+  const startProgression = randomizer(100);
   const miss = randomizer(10);
-  let output = progression(startNumber, 10, 2);
+  let output = progression(startProgression, 10, 2);
 
   const arr = output.split(' ');
   const missNumb = arr[miss];
@@ -30,3 +38,5 @@ export const findProgression = () => {
 
   findProgression();
 };
+
+export default findProgression;

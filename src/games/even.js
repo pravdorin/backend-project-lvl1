@@ -1,7 +1,13 @@
 import readlineSync from 'readline-sync';
-import { randomizer, checkAnswer, userName } from '../functions';
+import { randomizer, checkAnswer, greeting } from '../functions';
 
-export const findEven = () => {
+greeting();
+
+const userName = readlineSync.question('May I have your name? ');
+console.log(`Hi ${userName} !`);
+
+console.log('Answer "yes" if the number is even, otherwise answer "no".\n');
+const findEven = () => {
   const randomNumber = randomizer(100);
 
   let correctAnswer = '';
@@ -21,3 +27,5 @@ export const findEven = () => {
   checkAnswer(answer, correctAnswer, wrongAnswer, userName);
   findEven();
 };
+
+export default findEven;

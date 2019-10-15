@@ -1,1 +1,3 @@
-import userName from '../index';
+import greeting from '../functions';
+
+greeting();

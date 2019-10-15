@@ -1,30 +1,20 @@
-import readlineSync from 'readline-sync';
 
-console.log('Welcome to the Brain Games!');
-
-export const userName = readlineSync.question('May I have your name? ');
-console.log(`Hi ${userName} !`);
 let streak = 0;
+
+export const greeting = () => {
+  console.log('Welcome to the Brain Games!');
+};
 
 export const randomizer = (num) => {
   const randomNumber = Math.round(Math.random(num) * num);
   return randomNumber;
-};
-export const randomSign = (num) => {
-  const randomNumber = Math.round(Math.random(num) * 3);
-  if (randomNumber === 1) {
-    return '+';
-  } if (randomNumber === 2) {
-    return '*';
-  }
-  return '-';
 };
 
 export const checkAnswer = (answer, correctAnswer, wrongAnswer, userName) => {
   if (answer == correctAnswer) {
     if (streak < 3) {
       console.log('Correct!');
-      streak++;
+      streak += 1;
     }
     if (streak >= 3) {
       console.log(`Congratulations, ${userName}!`);

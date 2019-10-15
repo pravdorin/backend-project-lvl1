@@ -1,6 +1,12 @@
 import readlineSync from 'readline-sync';
-import { randomizer, checkAnswer, userName } from '../functions';
+import { randomizer, checkAnswer, greeting } from '../functions';
 
+greeting();
+
+const userName = readlineSync.question('May I have your name? ');
+console.log(`Hi ${userName} !`);
+
+console.log('Find the greatest common divisor of given numbers.\n');
 const findGCD = (a, b) => {
   if (b === 0) {
     return a;
@@ -8,7 +14,7 @@ const findGCD = (a, b) => {
   return findGCD(b, (a % b));
 };
 
-export const commonDivisor = () => {
+const commonDivisor = () => {
   const randomNumber = randomizer(1000);
   const randomNumberTwo = randomizer(1000);
   const result = findGCD(randomNumber, randomNumberTwo);
@@ -18,3 +24,5 @@ export const commonDivisor = () => {
   checkAnswer(answer, correctAnswer, wrongAnswer, userName);
   commonDivisor();
 };
+
+export default commonDivisor;
