@@ -1,33 +1,38 @@
-import readlineSync from 'readline-sync';
-import { randomizer, checkAnswer, greeting } from '../functions';
+import {
+  randomizer, checkAnswer, greeting, question,
+} from '../functions';
 
-greeting();
-
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hi ${userName} !`);
+const userName = greeting();
 
 console.log('What is the result of the expression?"\n');
 
 const randomSign = (num) => {
-  const randomNumber = Math.round(Math.random(num) * 3);
-  if (randomNumber === 1) {
+  const random = Math.round(Math.random(num) * 3);
+  if (random === 1) {
     return '+';
-  } if (randomNumber === 2) {
+  } if (random === 2) {
     return '*';
   }
   return '-';
 };
 
 const calculator = () => {
-  const randomNumber = randomizer(100);
-  const randomNumberTwo = randomizer(100);
-  const Sign = randomSign(3);
+  const random = randomizer(100);
+  const random2 = randomizer(100);
+  const sign = randomSign(3);
+  let result = 0;
 
-  const result = eval(randomNumber + Sign + randomNumberTwo);
+  if (sign === '+') {
+    result = random + random2;
+  } else if (sign === '-') {
+    result = random - random2;
+  } else {
+    result = random * random2;
+  }
 
-  const answer = readlineSync.question(`Question: ${randomNumber} ${Sign} ${randomNumberTwo}   \n`);
+  const answer = parseInt(question(random, sign, random2, ''), 10);
   const correctAnswer = result;
-  const wrongAnswer = answer;
+  const wrongAnswer = Number(answer);
   checkAnswer(answer, correctAnswer, wrongAnswer, userName);
   calculator();
 };

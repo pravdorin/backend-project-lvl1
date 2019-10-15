@@ -1,10 +1,8 @@
-import readlineSync from 'readline-sync';
-import { randomizer, checkAnswer, greeting } from '../functions';
+import {
+  randomizer, checkAnswer, greeting, question,
+} from '../functions';
 
-greeting();
-
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hi ${userName} !`);
+const userName = greeting();
 
 console.log('Answer "yes" if given number is prime. Otherwise answer "no".\n');
 
@@ -14,9 +12,9 @@ function isPrime(num) {
 }
 
 const findPrime = () => {
-  const randomNumber = randomizer(100);
+  const random = randomizer(100);
 
-  let result = isPrime(randomNumber);
+  let result = isPrime(random);
 
   if (result === true) {
     result = 'yes';
@@ -24,8 +22,7 @@ const findPrime = () => {
     result = 'no';
   }
 
-  readlineSync.setDefaultOptions({ limit: ['yes', 'no'] });
-  const answer = readlineSync.question(`Question: ${randomNumber}   `);
+  const answer = question(random, '', '', '');
 
   const correctAnswer = result;
   const wrongAnswer = answer;

@@ -1,10 +1,9 @@
-import readlineSync from 'readline-sync';
-import { randomizer, checkAnswer, greeting } from '../functions';
+import {
+  randomizer, checkAnswer, greeting, question,
+} from '../functions';
 
-greeting();
+const userName = greeting();
 
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hi ${userName} !`);
 
 console.log('What number is missing in the progression?\n');
 
@@ -28,7 +27,7 @@ const findProgression = () => {
   arr[miss] = '..';
   output = arr.toString().replace(/,/g, ' ');
 
-  const answer = readlineSync.question(`Question: ${output} \n`);
+  const answer = question('', '', '', output);
 
   const correctAnswer = missNumb;
   const wrongAnswer = answer;

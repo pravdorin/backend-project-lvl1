@@ -1,10 +1,8 @@
-import readlineSync from 'readline-sync';
-import { randomizer, checkAnswer, greeting } from '../functions';
+import {
+  randomizer, checkAnswer, greeting, question,
+} from '../functions';
 
-greeting();
-
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hi ${userName} !`);
+const userName = greeting();
 
 console.log('Find the greatest common divisor of given numbers.\n');
 const findGCD = (a, b) => {
@@ -15,10 +13,10 @@ const findGCD = (a, b) => {
 };
 
 const commonDivisor = () => {
-  const randomNumber = randomizer(1000);
-  const randomNumberTwo = randomizer(1000);
-  const result = findGCD(randomNumber, randomNumberTwo);
-  const answer = readlineSync.question(`Question: ${randomNumber} ${randomNumberTwo}   \n`);
+  const random = randomizer(1000);
+  const random2 = randomizer(1000);
+  const result = findGCD(random, random2);
+  const answer = parseInt(question(random, random2, '', ''), 10);
   const correctAnswer = result;
   const wrongAnswer = answer;
   checkAnswer(answer, correctAnswer, wrongAnswer, userName);

@@ -1,19 +1,17 @@
-import readlineSync from 'readline-sync';
-import { randomizer, checkAnswer, greeting } from '../functions';
+import {
+  randomizer, checkAnswer, greeting, question,
+} from '../functions';
 
-greeting();
-
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hi ${userName} !`);
+const userName = greeting();
 
 console.log('Answer "yes" if the number is even, otherwise answer "no".\n');
 const findEven = () => {
-  const randomNumber = randomizer(100);
+  const random = randomizer(100);
 
   let correctAnswer = '';
   let wrongAnswer = '';
 
-  const result = randomNumber % 2 === 0 ? 'even' : 'odd';
+  const result = random % 2 === 0 ? 'even' : 'odd';
   if (result === 'even') {
     correctAnswer = 'yes';
     wrongAnswer = 'no';
@@ -21,8 +19,7 @@ const findEven = () => {
     wrongAnswer = 'no';
     correctAnswer = 'no';
   }
-  readlineSync.setDefaultOptions({ limit: ['yes', 'no'] });
-  const answer = readlineSync.question(`Question: ${randomNumber}   `);
+  const answer = question(random, '', '', '');
 
   checkAnswer(answer, correctAnswer, wrongAnswer, userName);
   findEven();

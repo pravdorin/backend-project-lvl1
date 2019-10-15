@@ -1,8 +1,17 @@
+import readlineSync from 'readline-sync';
 
 let streak = 0;
 
 export const greeting = () => {
   console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hi ${userName} !`);
+  return userName;
+};
+
+export const question = (random, random2 = '', random3 = '', output = '') => {
+  const answer = readlineSync.question(`Question: ${random} ${random2} ${random3} ${output}    `);
+  return answer;
 };
 
 export const randomizer = (num) => {
@@ -11,7 +20,7 @@ export const randomizer = (num) => {
 };
 
 export const checkAnswer = (answer, correctAnswer, wrongAnswer, userName) => {
-  if (answer == correctAnswer) {
+  if (answer === correctAnswer) {
     if (streak < 3) {
       console.log('Correct!');
       streak += 1;
