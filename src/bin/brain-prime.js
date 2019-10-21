@@ -1,3 +1,5 @@
-import findPrime from '../games/prime';
+#!/usr/bin/env node
 
-findPrime();
+import gamePrime from '../games/prime';
+
+gamePrime();

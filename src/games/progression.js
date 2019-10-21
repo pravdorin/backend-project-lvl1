@@ -1,41 +1,27 @@
-import {
-  randomizer, checkAnswer, greeting, question,
-} from '../functions';
 
-const userName = greeting();
+import engine from '../engine';
+import randomizer from '../utilities';
 
+const description = 'What number is missing in the progression?';
 
-console.log('What number is missing in the progression?\n');
+const lengthOfProgression = 10;
+const gameData = () => {
+  const first = randomizer(1, 100);
+  const difference = randomizer(1, 10);
+  const hiddenElementPosition = randomizer(1, lengthOfProgression);
+  let question = '';
+  const answer = String(first + hiddenElementPosition * difference);
 
-const progression = (start, count, multiplier) => {
-  let acc = multiplier;
-  let output = `${start}`;
-  for (let i = 0; i <= count; i += 1) {
-    output += ` ${start + acc}`;
-    acc += 2;
+  for (let counter = 1; counter <= lengthOfProgression; counter += 1) {
+    const space = ((counter === lengthOfProgression) ? '' : ' ');
+    if (counter === hiddenElementPosition) {
+      question = `${question}..${space}`;
+    } else {
+      question = `${question}${first + counter * difference}${space}`;
+    }
   }
-  return output;
+  const GameProgressioninfo = [question, answer];
+  return GameProgressioninfo;
 };
 
-const findProgression = () => {
-  const startProgression = randomizer(100);
-  const miss = randomizer(10);
-  let output = progression(startProgression, 10, 2);
-
-  const arr = output.split(' ');
-  const missNumb = arr[miss];
-  arr[miss] = '..';
-  output = arr.toString().replace(/,/g, ' ');
-
-  const answer = question('', '', '', output);
-
-  const correctAnswer = missNumb;
-  const wrongAnswer = answer;
-
-
-  checkAnswer(answer, correctAnswer, wrongAnswer, userName);
-
-  findProgression();
-};
-
-export default findProgression;
+export default () => engine(description, gameData);

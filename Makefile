@@ -13,4 +13,4 @@ prime:
 publish:
 	npm publish --dry-run
 lint:
-	npx eslint src/games/**
+	npx eslint .

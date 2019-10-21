@@ -1,3 +1,5 @@
-import calculator from '../games/calculator';
+#!/usr/bin/env node
 
-calculator();
+import calcGame from '../games/calculator';
+
+calcGame();

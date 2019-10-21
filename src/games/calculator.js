@@ -1,40 +1,39 @@
-import {
-  randomizer, checkAnswer, greeting, question,
-} from '../functions';
+import engine from '../engine';
+import randomizer from '../utilities';
 
-const userName = greeting();
+const description = 'What is the result of the expression?';
 
-console.log('What is the result of the expression?"\n');
+const getSignOfMathOperation = (mathSign) => (
+  mathSign.charAt(randomizer(0, String(mathSign).length - 1)));
 
-const randomSign = (num) => {
-  const random = Math.round(Math.random(num) * 3);
-  if (random === 1) {
-    return '+';
-  } if (random === 2) {
-    return '*';
+const getSign = (number1, sign, number2) => {
+  let result;
+  switch (sign) {
+    case '+':
+      result = number1 + number2;
+      break;
+    case ('-'):
+      result = number1 - number2;
+      break;
+    case ('*'):
+      result = number1 * number2;
+      break;
+    default:
   }
-  return '-';
+  return result;
 };
 
-const calculator = () => {
-  const random = randomizer(100);
-  const random2 = randomizer(100);
-  const sign = randomSign(3);
-  let result = 0;
+const gameData = () => {
+  const mathSign = '-+*';
+  const number1 = randomizer(1, 100);
+  const number2 = randomizer(1, 100);
+  const signOfMathOperation = getSignOfMathOperation(mathSign);
+  const correctAnswer = getSign(number1, signOfMathOperation, number2);
+  const question = `${number1} ${signOfMathOperation} ${number2}`;
+  const newCorrectAnswer = String(correctAnswer);
+  const calcGameData = [question, newCorrectAnswer];
 
-  if (sign === '+') {
-    result = random + random2;
-  } else if (sign === '-') {
-    result = random - random2;
-  } else {
-    result = random * random2;
-  }
-
-  const answer = parseInt(question(random, sign, random2, ''), 10);
-  const correctAnswer = result;
-  const wrongAnswer = Number(answer);
-  checkAnswer(answer, correctAnswer, wrongAnswer, userName);
-  calculator();
+  return calcGameData;
 };
 
-export default calculator;
+export default () => engine(description, gameData);

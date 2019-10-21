@@ -1,3 +1,5 @@
-import commonDivisor from '../games/gcd';
+#!/usr/bin/env node
 
-commonDivisor();
+import gcdGame from '../games/gcd';
+
+gcdGame();

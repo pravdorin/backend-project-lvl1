@@ -1,34 +1,22 @@
-import {
-  randomizer, checkAnswer, greeting, question,
-} from '../functions';
 
-const userName = greeting();
+import engine from '../engine';
+import randomizer from '../utilities';
 
-console.log('Answer "yes" if given number is prime. Otherwise answer "no".\n');
 
-function isPrime(num) {
-  for (let i = 2; i < num; i = +1) if (num % i === 0) return false;
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+
+const isPrime = (num) => {
+  for (let i = 2; i < Math.sqrt(num); i += 1) { if (num % i === 0) return false; }
   return num > 1;
-}
-
-const findPrime = () => {
-  const random = randomizer(100);
-
-  let result = isPrime(random);
-
-  if (result === true) {
-    result = 'yes';
-  } else {
-    result = 'no';
-  }
-
-  const answer = question(random, '', '', '');
-
-  const correctAnswer = result;
-  const wrongAnswer = answer;
-
-  checkAnswer(answer, correctAnswer, wrongAnswer, userName);
-  findPrime();
 };
 
-export default findPrime;
+const getcorrectAnswer = (question) => (isPrime(question) ? 'yes' : 'no');
+
+const gameData = () => {
+  const question = randomizer(1, 300);
+  const correctAnswer = getcorrectAnswer();
+  const primeGameData = [question, correctAnswer];
+  return primeGameData;
+};
+
+export default () => engine(description, gameData);

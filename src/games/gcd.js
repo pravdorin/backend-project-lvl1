@@ -1,26 +1,24 @@
-import {
-  randomizer, checkAnswer, greeting, question,
-} from '../functions';
+import engine from '../engine';
+import randomizer from '../utilities';
 
-const userName = greeting();
+const description = 'Find the greatest common divisor of given numbers.';
 
-console.log('Find the greatest common divisor of given numbers.\n');
-const findGCD = (a, b) => {
-  if (b === 0) {
-    return a;
+const gcd = (item1, item2) => {
+  if (item2 > 0) {
+    const k = item1 % item2;
+    return gcd(item2, k);
   }
-  return findGCD(b, (a % b));
+  return Math.abs(item1);
 };
 
-const commonDivisor = () => {
-  const random = randomizer(1000);
-  const random2 = randomizer(1000);
-  const result = findGCD(random, random2);
-  const answer = parseInt(question(random, random2, '', ''), 10);
-  const correctAnswer = result;
-  const wrongAnswer = answer;
-  checkAnswer(answer, correctAnswer, wrongAnswer, userName);
-  commonDivisor();
+const gameData = () => {
+  const item1 = randomizer(1, 100);
+  const item2 = randomizer(1, 100);
+  const question = (`${item1} ${item2}`);
+  const result = gcd(item1, item2);
+  const correctAnswer = String(result);
+  const gcdGameData = [question, correctAnswer];
+  return gcdGameData;
 };
 
-export default commonDivisor;
+export default () => engine(description, gameData);

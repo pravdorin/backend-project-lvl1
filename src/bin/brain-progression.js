@@ -1,3 +1,5 @@
-import findProgression from '../games/progression';
+#!/usr/bin/env node
 
-findProgression();
+import gameProgression from '../games/progression';
+
+gameProgression();

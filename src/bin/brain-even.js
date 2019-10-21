@@ -1,3 +1,5 @@
-import findEven from '../games/even';
+#!/usr/bin/env node
 
-findEven();
+import evenGame from '../games/even';
+
+evenGame();

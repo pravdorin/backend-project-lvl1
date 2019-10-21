@@ -1,28 +1,17 @@
-import {
-  randomizer, checkAnswer, greeting, question,
-} from '../functions';
+import engine from '../engine';
+import randomizer from '../utilities';
 
-const userName = greeting();
+const description = 'Answer "yes" if number even otherwise answer "no".';
 
-console.log('Answer "yes" if the number is even, otherwise answer "no".\n');
-const findEven = () => {
-  const random = randomizer(100);
+const isEven = (num) => num % 2 === 0;
 
-  let correctAnswer = '';
-  let wrongAnswer = '';
+const getCorrectAnswer = (question) => (isEven(question) ? 'yes' : 'no');
 
-  const result = random % 2 === 0 ? 'even' : 'odd';
-  if (result === 'even') {
-    correctAnswer = 'yes';
-    wrongAnswer = 'no';
-  } else {
-    wrongAnswer = 'no';
-    correctAnswer = 'no';
-  }
-  const answer = question(random, '', '', '');
-
-  checkAnswer(answer, correctAnswer, wrongAnswer, userName);
-  findEven();
+const gameData = () => {
+  const question = randomizer(1, 100);
+  const correctAnswer = getCorrectAnswer(question);
+  const evenGameData = [question, correctAnswer];
+  return evenGameData;
 };
 
-export default findEven;
+export default () => engine(description, gameData);
