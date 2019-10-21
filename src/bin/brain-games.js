@@ -1,3 +1,3 @@
-import greeting from '../functions';
+import getName from '../index';
 
-greeting();
+getName();

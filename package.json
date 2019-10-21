@@ -1,8 +1,12 @@
 {
   "name": "brain-games-pravdin-anton",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Brain games",
-  "keywords": ["games", "numbers", "fun"],
+  "keywords": [
+    "games",
+    "numbers",
+    "fun"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "./node_modules/.bin/eslint",

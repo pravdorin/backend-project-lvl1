@@ -6,4 +6,4 @@
 
 Games: Find even number, Calculate expression, Find GCD, Prime number or NOT, Fill miss number in progression.
 
-[![asciicast](https://asciinema.org/a/7RJlYpZSDIjTRfLyx0yZIk2Nl.svg)](https://asciinema.org/a/7RJlYpZSDIjTRfLyx0yZIk2Nl)
+[![asciicast](https://asciinema.org/a/2d64ubv19bANYW8SASw0Ho4sO.svg)](https://asciinema.org/a/2d64ubv19bANYW8SASw0Ho4sO)
